@@ -12,13 +12,17 @@ const CartQuantity = (props: { cartItems: CartItemProps[] }) => {
 	);
 
 	createComputed(() => {
-		if (Array.isArray(props.cartItems)) {
+		if (
+			Array.isArray(props.cartItems) &&
+			Array.isArray(props.cartItems) &&
+			props.cartItems.length === cartItems.length
+		) {
 			setQuantity(props.cartItems?.reduce((quantity, item) => item.quantity + quantity, 0));
 		}
 	});
 
 	createComputed(() => {
-		if (isRouting() && Array.isArray(cartItems)) {
+		if (isRouting() && Array.isArray(cartItems) && cartItems.length >= 0) {
 			setQuantity(cartItems?.reduce((quantity, item) => item.quantity + quantity, 0));
 		}
 	});

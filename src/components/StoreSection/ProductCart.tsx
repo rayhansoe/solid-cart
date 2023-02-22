@@ -5,7 +5,7 @@ import { createServerAction$ } from "solid-start/server";
 import {
 	createCartItem,
 	getCartItemByProductId,
-	getCartItems,
+	// getCartItems,
 	increaseCartItem,
 	removeCartItem,
 	setCartItemQuantity,
@@ -68,7 +68,7 @@ export default function ProductCart(props: ProductCartProps) {
 				// Check Item
 				if (!item?.id) {
 					await createCartItem(prisma, product.id);
-					const updatedCartItems = await getCartItems(prisma);
+					// const updatedCartItems = await getCartItems(prisma);
 					// return updatedCartItems;
 					return;
 				}
@@ -76,14 +76,14 @@ export default function ProductCart(props: ProductCartProps) {
 				// Check if Item quantity is equal with product stock
 				if (product.stock === item.quantity) {
 					await setCartItemQuantity(prisma, item.id, product.stock);
-					const updatedCartItems = await getCartItems(prisma);
+					// const updatedCartItems = await getCartItems(prisma);
 					// return updatedCartItems;
 					return;
 				}
 
 				// increase item
 				await increaseCartItem(prisma, item.id);
-				const updatedCartItems = await getCartItems(prisma);
+				// const updatedCartItems = await getCartItems(prisma);
 				// return updatedCartItems;
 				return;
 			} catch (error) {
@@ -114,7 +114,7 @@ export default function ProductCart(props: ProductCartProps) {
 				await updateProductPopularityLite(prisma, product.id, product.popularity);
 
 				await removeCartItem(prisma, item.id);
-				const updatedCartItems = await getCartItems(prisma);
+				// const updatedCartItems = await getCartItems(prisma);
 				// return updatedCartItems;
 				return;
 			} catch (error) {
@@ -139,7 +139,7 @@ export default function ProductCart(props: ProductCartProps) {
 				// Check Item
 				if (!item?.id) {
 					await createCartItem(prisma, product.id);
-					const updatedCartItems = await getCartItems(prisma);
+					// const updatedCartItems = await getCartItems(prisma);
 					// return updatedCartItems;
 					return;
 				}
@@ -149,7 +149,7 @@ export default function ProductCart(props: ProductCartProps) {
 
 				if (Number.isNaN(newQuantity)) {
 					await setCartItemQuantity(prisma, item.id, item.quantity);
-					const updatedCartItems = await getCartItems(prisma);
+					// const updatedCartItems = await getCartItems(prisma);
 					// return updatedCartItems;
 					return;
 				}
@@ -160,20 +160,20 @@ export default function ProductCart(props: ProductCartProps) {
 
 				if (newQuantity === 0) {
 					await removeCartItem(prisma, item.id);
-					const updatedCartItems = await getCartItems(prisma);
+					// const updatedCartItems = await getCartItems(prisma);
 					// return updatedCartItems;
 					return;
 				}
 
 				if (product.stock < newQuantity) {
 					await setCartItemQuantity(prisma, item.id, product.stock);
-					const updatedCartItems = await getCartItems(prisma);
+					// const updatedCartItems = await getCartItems(prisma);
 					// return updatedCartItems;
 					return;
 				}
 
 				await setCartItemQuantity(prisma, item.id, newQuantity);
-				const updatedCartItems = await getCartItems(prisma);
+				// const updatedCartItems = await getCartItems(prisma);
 				// return updatedCartItems;
 				return;
 			} catch (error) {

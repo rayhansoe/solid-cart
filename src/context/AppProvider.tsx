@@ -18,9 +18,7 @@ export default function AppProvider(props: {
 	const { setProducts } = ProductContext;
 	createComputed(() => {
 		batch(() => {
-			if (Array.isArray(props.cartItems)) {
-				console.log("App Provider");
-
+			if (Array.isArray(props.cartItems) && props.cartItems && props.cartItems.length >= 0) {
 				setIsLoading(false);
 				setCartItems(reconcile(props.cartItems));
 			}
@@ -29,7 +27,7 @@ export default function AppProvider(props: {
 
 	createComputed(() => {
 		batch(() => {
-			if (Array.isArray(props.products)) {
+			if (Array.isArray(props.products) && props.products && props.products.length >= 0) {
 				setIsLoading(false);
 				setProducts(reconcile(props.products));
 			}
