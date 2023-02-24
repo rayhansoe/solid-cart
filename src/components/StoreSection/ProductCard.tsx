@@ -11,7 +11,7 @@ const ProductCard = (props: { cartItems: CartItemProps[]; product: ProductProps 
 					class='w-full h-52 object-cover'
 					src={props?.product?.imgUrl}
 					alt={props?.product?.name}
-					loading='eager'
+					loading='lazy'
 				/>
 				<div class='flex flex-col w-full p-4 h-auto gap-6'>
 					<div class='flex justify-between items-center gap-2'>

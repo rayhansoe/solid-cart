@@ -127,7 +127,7 @@ export default function Page() {
 															class='w-24 h-24 object-cover rounded-lg'
 															src={`/${p?.imgUrl}` || ""}
 															alt={p?.name}
-															loading='eager'
+															loading='lazy'
 														/>
 														<div class='flex flex-col gap-2 w-3/5'>
 															<span class='text-lg font-medium truncate'>{p?.name}</span>
