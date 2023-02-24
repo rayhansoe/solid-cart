@@ -159,7 +159,7 @@ export default function CartItem(props: {
 				{/* Product Image */}
 				<img
 					class='w-2/5 h-28 object-cover rounded sm:h-32'
-					loading='lazy'
+					loading='eager'
 					src={props.products?.find((product) => product.id === props?.cartItem.productId)?.imgUrl}
 					alt={props.products?.find((product) => product.id === props?.cartItem.productId)?.name}
 				/>
