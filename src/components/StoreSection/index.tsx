@@ -4,7 +4,10 @@ import { createEffect, For, Show } from "solid-js";
 import type { CartItemProps, ProductProps } from "~/types";
 import ProductCard from "./ProductCard";
 
-const StoreSection = (props: { cartItems: CartItemProps[]; products: ProductProps[] }) => {
+const StoreSection = (props: {
+	cartItems: CartItemProps[] | undefined;
+	products: ProductProps[] | undefined;
+}) => {
 	let animationParent: HTMLUListElement | ((el: HTMLUListElement) => void) | any;
 
 	createEffect(() => {
@@ -14,9 +17,15 @@ const StoreSection = (props: { cartItems: CartItemProps[]; products: ProductProp
 		<>
 			<ul ref={animationParent} class='flex items-center justify-center flex-wrap w-full'>
 				<Show when={props.products}>
-					<For each={props.products}>
-						{(product) => <ProductCard cartItems={props.cartItems} product={product} />}
-					</For>
+					{props.products ? (
+						<For each={props.products}>
+							{(product) =>
+								props.cartItems ? (
+									<ProductCard cartItems={props.cartItems} product={product} />
+								) : null
+							}
+						</For>
+					) : null}
 				</Show>
 			</ul>
 		</>
