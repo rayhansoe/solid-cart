@@ -1,9 +1,13 @@
 /* eslint-disable solid/reactivity */
 import { createComputed, createEffect, createSignal, Show } from "solid-js";
 import { createServerAction$, redirect } from "solid-start/server";
-import { getCartItems, removeCartItems } from "~/services/CartServices";
-import { decreaseProductsStock } from "~/services/ProductServices";
-import { createTransaction, createTransactionItem } from "~/services/TransactionServices";
+import {
+	getCartItems,
+	removeCartItems,
+	decreaseProductsStock,
+	createTransaction,
+	createTransactionItem,
+} from "~/services/services";
 import type { CartItemProps, ProductProps } from "~/types";
 import { formatCurrency } from "~/utilities/formatCurrency";
 import { prisma } from "~/server/db/client";

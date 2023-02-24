@@ -3,12 +3,12 @@ import type { RouteDataArgs } from "solid-start";
 import { A } from "solid-start";
 import { useRouteData } from "solid-start";
 import AppProvider from "~/context/AppProvider";
-import { getServerCartItemsData$ } from "~/services/CartServices";
-import { getServerProductsData$ } from "~/services/ProductServices";
 import {
+	getServerCartItemsData$,
+	getServerProductsData$,
 	getServerTransactionData$,
 	getServerTransactionItemsData$,
-} from "~/services/TransactionServices";
+} from "~/services/services";
 
 export function routeData({ params }: RouteDataArgs) {
 	const products = getServerProductsData$();

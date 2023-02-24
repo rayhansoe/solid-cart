@@ -8,8 +8,9 @@ import {
 	getCartItems,
 	removeCartItem,
 	setCartItemQuantity,
-} from "~/services/CartServices";
-import { getProduct, updateProductPopularityLite } from "~/services/ProductServices";
+	getProduct,
+	updateProductPopularityLite,
+} from "~/services/services";
 import type { CartItemProps, ProductProps } from "~/types";
 import { formatCurrency } from "~/utilities/formatCurrency";
 import { prisma } from "~/server/db/client";

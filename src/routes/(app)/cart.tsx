@@ -2,9 +2,8 @@ import { Show } from "solid-js";
 import { Meta, Title, useRouteData } from "solid-start";
 
 import CartPage from "~/components/CartPage";
-import { getServerProductsData$ } from "~/services/ProductServices";
-import { getServerCartItemsData$ } from "~/services/CartServices";
 import AppProvider from "~/context/AppProvider";
+import { getServerCartItemsData$, getServerProductsData$ } from "~/services/services";
 
 export function routeData() {
 	const products = getServerProductsData$();

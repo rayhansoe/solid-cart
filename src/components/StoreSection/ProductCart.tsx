@@ -5,17 +5,14 @@ import { createServerAction$ } from "solid-start/server";
 import {
 	createCartItem,
 	getCartItemByProductId,
-	// getCartItems,
 	increaseCartItem,
 	removeCartItem,
 	setCartItemQuantity,
-} from "~/services/CartServices";
-import {
 	getProduct,
 	getProducts,
 	reStockProduct,
 	updateProductPopularityLite,
-} from "~/services/ProductServices";
+} from "~/services/services";
 import type { CartItemProps } from "~/types";
 import { prisma } from "~/server/db/client";
 import { refetchRouteData } from "solid-start";

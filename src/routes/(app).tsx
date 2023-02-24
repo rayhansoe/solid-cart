@@ -2,7 +2,7 @@ import type { VoidComponent } from "solid-js";
 import { Show } from "solid-js";
 import { Outlet, useRouteData } from "solid-start";
 import NavBar from "~/components/NavBar";
-import { getServerCartItemsData$ } from "~/services/CartServices";
+import { getServerCartItemsData$ } from "~/services/services";
 
 export function routeData() {
 	const cartItems = getServerCartItemsData$();

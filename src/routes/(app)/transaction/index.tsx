@@ -1,12 +1,12 @@
 import { For, Show } from "solid-js";
 import { useRouteData } from "solid-start";
 import AppProvider from "~/context/AppProvider";
-import { getServerCartItemsData$ } from "~/services/CartServices";
-import { getServerProductsData$ } from "~/services/ProductServices";
 import {
+	getServerCartItemsData$,
+	getServerProductsData$,
 	getServerTransactionsData$,
 	getServerTransactionsItemsData$,
-} from "~/services/TransactionServices";
+} from "~/services/services";
 
 export function routeData() {
 	const transactions = getServerTransactionsData$();
