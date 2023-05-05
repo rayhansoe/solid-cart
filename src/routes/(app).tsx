@@ -7,8 +7,6 @@ import { Outlet, useRouteData } from "solid-start";
 import NavBar from "~/components/NavBar";
 import { getServerCartItemsData$ } from "~/services/services";
 
-export const runtime = "edge";
-
 export function routeData() {
 	const cartItems = getServerCartItemsData$();
 
